@@ -212,7 +212,47 @@ h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.3rem,6vw,4rem)
 .barber .role{font-family:var(--f-serif);color:var(--gold);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-top:6px}
 .barber .rule{position:relative;margin:24px auto 0;max-width:300px;padding:14px;border-radius:14px;background:rgba(212,162,60,.07);border:1px dashed rgba(243,210,122,.35);font-size:.92rem;color:var(--muted)}
 .barber .rule b{color:var(--gold-2);font-weight:700}
+.barber img.photo{height:auto;mix-blend-mode:normal;border-radius:18px;aspect-ratio:1/1;object-fit:cover;box-shadow:0 20px 50px -20px rgba(212,162,60,.45)}
 @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ---------- Planos ---------- */
+.plans{background:linear-gradient(180deg,transparent,rgba(212,162,60,.06),transparent)}
+.plan-label{display:flex;align-items:center;gap:14px;margin:0 0 16px;font-family:var(--f-serif);font-weight:700;color:var(--gold-2);letter-spacing:.18em;text-transform:uppercase;font-size:.85rem}
+.plan-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+@media(max-width:520px){.plan-label{flex-wrap:wrap;gap:2px 8px}.plan-label::after{display:none}.plan-label small{flex-basis:100%}}
+.plan-label small{font-family:Inter,system-ui,sans-serif;letter-spacing:0;text-transform:none;font-weight:500;color:var(--muted);font-size:.85rem}
+.plan-grid{display:grid;gap:14px;margin-bottom:44px}
+.plan-grid.two{grid-template-columns:repeat(2,1fr)}
+.plan-grid.four{grid-template-columns:repeat(4,1fr)}
+.plan{position:relative;display:flex;flex-direction:column;gap:14px;padding:24px 22px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,236,190,.045),rgba(255,236,190,.015));border:1px solid var(--line);text-decoration:none;color:var(--text);cursor:pointer;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.plan:hover{transform:translateY(-4px);border-color:rgba(243,210,122,.5);box-shadow:0 20px 40px -24px rgba(212,162,60,.5)}
+.plan h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:1.6rem;line-height:1.05}
+.plan .what{color:var(--muted);font-size:.92rem;margin:0}
+.plan .what b{color:var(--text);font-weight:600}
+.plan .price{font-size:2.4rem}
+.plan .price small{font-size:.5em}
+.plan .per{display:block;color:var(--muted);font-size:.82rem;margin-top:4px;font-family:Inter,system-ui,sans-serif}
+.plan .ask{align-self:flex-start;margin-top:auto}
+.plan:hover .ask{background:var(--green);color:var(--green-ink)}
+.plan.featured{border-color:rgba(243,210,122,.55);background:radial-gradient(300px 200px at 100% 0%,rgba(212,162,60,.22),transparent 70%),linear-gradient(180deg,#1a1308,#0a0805)}
+.plan.featured::after{content:"";position:absolute;inset:7px;border:1px solid rgba(243,210,122,.2);border-radius:14px;pointer-events:none}
+.plan .badge{margin-bottom:0}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.perk{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line-soft);font-size:.9rem;font-weight:600}
+.perk svg{flex:0 0 22px;width:22px;height:22px;stroke:var(--gold-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rules{margin:18px 0 0;text-align:center;color:var(--muted);font-size:.88rem}
+.see-all{display:flex;justify-content:center;margin-top:26px}
+@media(max-width:960px){.plan-grid.four{grid-template-columns:repeat(2,1fr)}.perks{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.plan-grid.two,.plan-grid.four,.perks{grid-template-columns:1fr}.plan{padding:20px 18px}}
+
+/* ---------- Onde fica ---------- */
+.place{grid-column:1/-1;display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center}
+.place img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:50%;box-shadow:0 0 0 2px var(--gold),0 0 0 8px #000,0 0 0 9px rgba(243,210,122,.35),0 30px 60px -20px rgba(212,162,60,.4);max-width:380px;margin:0 auto}
+.place address{font-style:normal;color:var(--muted);font-size:1.02rem;margin:14px 0 22px}
+.place address strong{display:block;color:var(--text);font-size:1.15rem;margin-bottom:4px}
+.place .row{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:860px){.place{grid-template-columns:1fr;text-align:center}.place .row{justify-content:center}}
+@media(max-width:520px){.place .row .btn{width:100%}}
 
 /* ---------- Horários e contato ---------- */
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
@@ -242,6 +282,10 @@ h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.3rem,6vw,4rem)
 .quick a:hover{border-color:var(--gold);background:rgba(212,162,60,.1)}
 .quick a svg{width:16px;height:16px;fill:none;stroke:var(--gold-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.days li strong{text-align:right}
+.days li strong em{font-style:normal;white-space:nowrap}
+.days li strong i{font-style:normal;color:var(--muted)}
+@media(max-width:520px){.days li strong em{display:block}.days li strong i{display:none}}
 @media(max-width:520px){.box{padding:24px 18px}.cta h3{font-size:2rem}}
 
 /* ---------- Rodapé ---------- */
@@ -303,9 +347,9 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><i></i></button>
     <ul id="menu">
       <li><a href="#servicos">Serviços e preços</a></li>
-      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#planos">Planos</a></li>
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#horarios">Horários</a></li>
+      <li><a href="#horarios">Horários e endereço</a></li>
       <li><a href="#contato" class="pill-cta" data-wa><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a></li>
     </ul>
   </div>
@@ -328,7 +372,7 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
       </a>
     </div>
     <div class="trust">
-      <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-hours-today>08:30 às 19:00</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-hours-today>08:30 – 11:00 · 14:00 – 19:00</span></span>
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M21 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Ordem de chegada</span>
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Adulto e infantil</span>
     </div>
@@ -421,6 +465,76 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
   </div>
 </section>
 
+<section class="plans" id="planos">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Mais cuidado, mais economia</span>
+      <h2>Pacotes <span class="metal">&amp; Assinatura</span></h2>
+      <div class="orn"><svg><use href="#crown"/></svg></div>
+      <p>Corte sempre em dia pagando menos. Toque em um plano para assinar pelo WhatsApp.</p>
+    </div>
+
+    <div class="plan-label reveal">Pacotes de corte <small>· pagamento antecipado</small></div>
+    <div class="plan-grid two">
+      <a class="plan reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero o Pacote 2 (2 cortes por mês, R$ 70). Como faço?">
+        <h3>Pacote 2</h3>
+        <p class="what"><b>2 cortes</b> por mês</p>
+        <div><div class="price"><sup>R$</sup>70</div><span class="per">cada corte sai por R$ 35</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Quero esse</span>
+      </a>
+      <a class="plan reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero o Pacote 3 (3 cortes por mês, R$ 89). Como faço?">
+        <h3>Pacote 3</h3>
+        <p class="what"><b>3 cortes</b> por mês</p>
+        <div><div class="price"><sup>R$</sup>89</div><span class="per">cada corte sai por R$ 29,66</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Quero esse</span>
+      </a>
+    </div>
+
+    <div class="plan-label reveal">Barbearia por assinatura <small>· quantas vezes quiser</small></div>
+    <div class="plan-grid four">
+      <a class="plan reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero assinar o plano Básico (corte ilimitado, R$ 99,99/mês). Como faço?">
+        <h3>Básico</h3>
+        <p class="what"><b>Corte ilimitado</b></p>
+        <div><div class="price"><sup>R$</sup>99<small>,99</small></div><span class="per">por mês</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Assinar</span>
+      </a>
+      <a class="plan reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero assinar o plano Pro (corte ilimitado + sobrancelha, R$ 124,99/mês). Como faço?">
+        <h3>Pro</h3>
+        <p class="what"><b>Corte ilimitado</b> + sobrancelha</p>
+        <div><div class="price"><sup>R$</sup>124<small>,99</small></div><span class="per">por mês</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Assinar</span>
+      </a>
+      <a class="plan reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero assinar o plano Plus (corte ilimitado + barba, R$ 189,99/mês). Como faço?">
+        <h3>Plus</h3>
+        <p class="what"><b>Corte ilimitado</b> + barba</p>
+        <div><div class="price"><sup>R$</sup>189<small>,99</small></div><span class="per">por mês</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Assinar</span>
+      </a>
+      <a class="plan featured reveal" href="https://wa.me/556798289548" data-wa data-msg="Olá! Quero assinar o plano Premium (corte ilimitado + barba + sobrancelha, R$ 209,99/mês). Como faço?">
+        <span class="badge">Completo</span>
+        <h3>Premium</h3>
+        <p class="what"><b>Corte ilimitado</b> + barba + sobrancelha</p>
+        <div><div class="price"><sup>R$</sup>209<small>,99</small></div><span class="per">por mês</span></div>
+        <span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Assinar</span>
+      </a>
+    </div>
+
+    <div class="perks">
+      <div class="perk reveal"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg>Ambiente climatizado</div>
+      <div class="perk reveal"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15.5 12h.01M18 13.5h.01"/></svg>PlayStation na espera</div>
+      <div class="perk reveal"><svg viewBox="0 0 24 24"><path d="M9 2h6M10 2v4l-3 4v12h10V10l-3-4V2"/></svg>Bebidas geladas</div>
+      <div class="perk reveal"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M21 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Grupo VIP no WhatsApp</div>
+    </div>
+    <p class="rules reveal">Válido por 30 dias. Pacote pessoal e intransferível. Pagamento antecipado.</p>
+    <div class="see-all reveal">
+      <a class="btn btn-ghost" href="planos.jpg" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+        Ver tabela completa
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="about" id="sobre">
   <div class="wrap about-grid">
     <div class="reveal">
@@ -441,13 +555,13 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
         </div>
         <div class="feat">
           <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18h18l1.5-10-5.5 4-5-7-5 7-5.5-4z"/></svg></div>
-          <div><strong>Ambiente acolhedor</strong><span>Espaço confortável para você esperar com tranquilidade.</span></div>
+          <div><strong>Ambiente acolhedor</strong><span>Climatizado, com PlayStation e bebidas geladas enquanto você espera.</span></div>
         </div>
       </div>
     </div>
 
     <div class="barber reveal">
-      <img src="logo.png" alt="" width="640" height="560" loading="lazy">
+      <img class="photo" src="davi.jpg" alt="Pedro Davi, barbeiro da Davi Barbearia" width="900" height="900" loading="lazy">
       <div class="name metal">Pedro Davi</div>
       <div class="role">Barbeiro</div>
       <div class="rule"><b>Sem agendamento.</b><br>Apenas ordem de chegada.</div>
@@ -471,7 +585,7 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
           <span class="status" data-status><i></i><b>Horário</b></span>
         </div>
         <ul class="days" id="days">
-          <li><span>Segunda a sábado</span><strong>08:30 – 19:00</strong></li>
+          <li><span>Segunda a sábado</span><strong>08:30 – 11:00 · 14:00 – 19:00</strong></li>
           <li class="closed"><span>Domingo</span><strong>Fechado</strong></li>
         </ul>
         <div class="notice">
@@ -493,6 +607,27 @@ footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
           <button type="button" data-wa data-msg="Olá! Qual o valor do corte infantil?">Valor infantil</button>
           <button type="button" data-wa data-msg="Olá! Até que horas vocês atendem hoje?">Até que horas?</button>
           <a href="tel:+556798289548" data-tel><svg aria-hidden="true"><use href="#phone"/></svg>Ligar</a>
+        </div>
+      </div>
+
+      <div class="box place reveal" id="endereco">
+        <img src="fachada.jpg" alt="Fachada da Davi Barbearia, número 738" width="900" height="900" loading="lazy">
+        <div>
+          <h3 class="metal">Onde fica</h3>
+          <address>
+            <strong>Unidade 2 · Bonito – MS</strong>
+            Nº 738, ao lado da Acácia Branca.<br>Procure a fachada preta e dourada com o poste de barbeiro.
+          </address>
+          <div class="row">
+            <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=Davi+Barbearia+Bonito+MS" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7m0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5"/></svg>
+              Abrir no mapa
+            </a>
+            <a class="btn btn-ghost" href="https://instagram.com/d4vi_barbearia" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+              @d4vi_barbearia
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -535,12 +670,12 @@ var CONFIG = {
   // Horários por dia. null = fechado.
   // Para intervalo de almoço use: [['08:30','12:00'], ['13:30','19:00']]
   hours: {
-    1: [['08:30','19:00']], // segunda
-    2: [['08:30','19:00']], // terça
-    3: [['08:30','19:00']], // quarta
-    4: [['08:30','19:00']], // quinta
-    5: [['08:30','19:00']], // sexta
-    6: [['08:30','19:00']], // sábado
+    1: [['08:30','11:00'], ['14:00','19:00']], // segunda
+    2: [['08:30','11:00'], ['14:00','19:00']], // terça
+    3: [['08:30','11:00'], ['14:00','19:00']], // quarta
+    4: [['08:30','11:00'], ['14:00','19:00']], // quinta
+    5: [['08:30','11:00'], ['14:00','19:00']], // sexta
+    6: [['08:30','11:00'], ['14:00','19:00']], // sábado
     0: null                 // domingo
   }
 };
@@ -615,6 +750,7 @@ var CONFIG = {
   }
   function toMin(hhmm){ var p = hhmm.split(':'); return +p[0]*60 + +p[1]; }
   function rangesText(r){ return r ? r.map(function(x){ return x[0] + ' – ' + x[1]; }).join(' · ') : 'Fechado'; }
+  function rangesHtml(r){ return r ? r.map(function(x){ return '<em>' + x[0] + ' – ' + x[1] + '</em>'; }).join('<i> · </i>') : 'Fechado'; }
 
   function computeStatus(){
     var n = nowInShop(), today = CONFIG.hours[n.day];
@@ -645,7 +781,7 @@ var CONFIG = {
     var today = nowInShop().day;
     $('#days').innerHTML = [1,2,3,4,5,6,0].map(function(d){
       var h = CONFIG.hours[d];
-      return '<li class="' + (h ? '' : 'closed') + (d === today ? ' today' : '') + '"><span>' + DAYS[d] + '</span><strong>' + rangesText(h) + '</strong></li>';
+      return '<li class="' + (h ? '' : 'closed') + (d === today ? ' today' : '') + '"><span>' + DAYS[d] + '</span><strong>' + rangesHtml(h) + '</strong></li>';
     }).join('');
   }
   renderDays();
