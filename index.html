@@ -3,242 +3,692 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Davi Barbearia – cortes masculinos e infantis, barba, sobrancelha e mais. Agende pelo WhatsApp.">
+<meta name="description" content="Davi Barbearia – Guiado por Deus. Cortes masculinos e infantis, barba na navalha, sobrancelha e mais. Sem agendamento: ordem de chegada.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Davi Barbearia – Guiado por Deus">
+<meta property="og:description" content="Cortes, barba e sobrancelha. Atendimento por ordem de chegada. Chame no WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo.png">
 <title>Davi Barbearia – Guiado por Deus</title>
+<link rel="icon" type="image/png" href="icone.png">
+<link rel="apple-touch-icon" href="icone.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0b;--surface:#131316;--surface-2:#1b1b20;--text:#f5f2ea;--muted:#9b968a;
-  --gold:#d4a538;--gold-2:#f0c75e;--line:rgba(212,165,56,.18);--btn-text:#0a0a0b;
-  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#000;--bg-2:#0b0906;--surface:rgba(255,236,190,.035);--surface-2:rgba(255,236,190,.07);
+  --text:#f7f1e3;--muted:#a69d8a;
+  --gold:#d4a23c;--gold-2:#f3d27a;--gold-3:#fff0bf;--gold-deep:#8d5f17;
+  --metal:linear-gradient(180deg,#fff3c4 0%,#f1cf6e 26%,#b9852a 50%,#f5d77f 68%,#9a6a1c 100%);
+  --metal-x:linear-gradient(100deg,#9a6a1c 0%,#f5d77f 22%,#fff3c4 34%,#c8922f 52%,#f1cf6e 74%,#8d5f17 100%);
+  --line:rgba(243,210,122,.14);--line-soft:rgba(255,255,255,.07);
+  --pole-red:#c8102e;--pole-blue:#1f3a93;
+  --green:#25d366;--green-ink:#04140a;--ok:#3ddc84;--bad:#ff6b5e;
+  --radius:20px;--ease:cubic-bezier(.2,.8,.2,1);
+  --f-display:'Rye',Georgia,serif;--f-serif:'Cinzel',Georgia,serif;
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:8px}
+.metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* Header */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,11,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.06em;color:var(--gold);text-decoration:none}
-.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+/* Textura sutil de fundo */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 50% -10%,rgba(212,162,60,.16),transparent 60%),
+    radial-gradient(700px 500px at 100% 60%,rgba(141,95,23,.10),transparent 60%),
+    radial-gradient(700px 500px at 0% 100%,rgba(141,95,23,.08),transparent 60%)}
+
+/* ---------- Faixa de poste de barbeiro ---------- */
+.pole{height:6px;background:repeating-linear-gradient(-45deg,var(--pole-red) 0 10px,#fff 10px 20px,var(--pole-blue) 20px 30px,#fff 30px 40px);background-size:56.57px 100%;animation:pole 1.6s linear infinite}
+@keyframes pole{to{background-position:56.57px 0}}
+
+/* ---------- Ornamentos ---------- */
+.orn{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:14px auto 0}
+.orn::before,.orn::after{content:"";height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn::after{transform:scaleX(-1)}
+.orn svg{width:30px;height:20px;fill:url(#gold-grad)}
+.head.left .orn{justify-content:flex-start;margin-left:0}
+.head.left .orn::before{display:none}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,border-color .3s,box-shadow .3s}
+.nav .pole{height:4px}
+.nav.scrolled,.nav.open{background:rgba(0,0,0,.86);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1.5px var(--gold),0 0 0 4px #000,0 0 0 5px rgba(212,162,60,.4)}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:1.15rem;letter-spacing:.04em;line-height:1}
+.brand b small{display:block;font-family:var(--f-serif);font-size:.56rem;letter-spacing:.32em;color:var(--muted);margin-top:4px}
+.nav ul{display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s}
-.nav ul a:hover{color:var(--text)}
-.nav-cta{background:var(--gold);color:var(--btn-text)!important;padding:9px 18px;border-radius:99px;font-weight:600!important}
-.nav-cta:hover{background:var(--gold-2)}
-@media(max-width:640px){.nav ul li:not(:last-child){display:none}}
+.nav ul a:hover{color:var(--gold-2)}
+.pill-cta{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--green-ink)!important;padding:9px 16px;border-radius:99px;font-weight:700!important}
+.pill-cta svg{width:16px;height:16px;fill:currentColor}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);place-items:center;cursor:pointer}
+.menu-btn i{display:block;width:18px;height:2px;background:var(--gold-2);border-radius:2px;position:relative;transition:background .2s}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--gold-2);border-radius:2px;transition:transform .3s var(--ease)}
+.menu-btn i::before{top:-6px}.menu-btn i::after{top:6px}
+.nav.open .menu-btn i{background:transparent}
+.nav.open .menu-btn i::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .menu-btn i::after{transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:820px){
+  .menu-btn{display:grid}
+  .nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:8px 20px 20px;background:rgba(0,0,0,.97);border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+  .nav.open ul{opacity:1;transform:none;pointer-events:auto}
+  .nav ul a{display:block;padding:14px 4px;font-size:1.05rem;color:var(--text);border-bottom:1px solid var(--line-soft)}
+  .nav ul li:last-child a{border:0;margin-top:14px;justify-content:center;padding:14px}
+}
 
-/* Hero */
-.hero{position:relative;overflow:hidden;padding:110px 0 96px;text-align:center;background:radial-gradient(900px 500px at 50% -10%,rgba(212,165,56,.22),transparent 70%),var(--bg)}
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,var(--bg))}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);padding:6px 14px;border-radius:99px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
-.hero h1{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:clamp(4rem,14vw,8.5rem);line-height:.9;margin:22px 0 14px;letter-spacing:.02em}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p{color:var(--muted);font-size:1.1rem;max-width:520px;margin:0 auto 34px}
-.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:99px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s,border-color .2s}
+/* ---------- Botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;min-height:54px;border-radius:99px;font-weight:700;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:transform .25s var(--ease),box-shadow .3s,background .3s,border-color .3s,color .3s}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--gold);color:var(--btn-text)}
-.btn-primary:hover{background:var(--gold-2)}
-.btn-ghost{border:1px solid var(--line);color:var(--text)}
-.btn-ghost:hover{border-color:var(--gold)}
-.hours-pill{display:inline-flex;gap:8px;align-items:center;margin-top:30px;color:var(--muted);font-size:.9rem}
-.dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.15)}
+.btn:active{transform:scale(.98)}
+.btn svg{width:20px;height:20px;fill:currentColor;flex:none}
+.btn-wa{background:var(--green);color:var(--green-ink);box-shadow:0 12px 30px -10px rgba(37,211,102,.55)}
+.btn-wa:hover{box-shadow:0 16px 40px -8px rgba(37,211,102,.6)}
+.btn-gold{background:var(--metal-x);color:#1a1205;box-shadow:0 10px 30px -10px rgba(212,162,60,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-ghost{border:1px solid var(--line);color:var(--gold-2);background:rgba(212,162,60,.05)}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(212,162,60,.1)}
+.btn-ghost svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* Sections */
-section{padding:88px 0}
-.head{text-align:center;margin-bottom:46px}
-.kicker{color:var(--gold);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:clamp(2.6rem,7vw,4rem);line-height:1;margin:10px 0 0}
+/* ---------- Status ---------- */
+.status{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--line-soft);font-size:.82rem;font-weight:600}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none}
+.status.is-open{border-color:rgba(61,220,132,.35);background:rgba(61,220,132,.08)}
+.status.is-open i{background:var(--ok);animation:pulse 2s infinite}
+.status.is-closed{border-color:rgba(255,107,94,.3);background:rgba(255,107,94,.07)}
+.status.is-closed i{background:var(--bad)}
+.status span{color:var(--muted);font-weight:500}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(61,220,132,.2)}50%{box-shadow:0 0 0 8px rgba(61,220,132,0)}}
 
-/* Prices */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;transition:transform .25s,border-color .25s,background .25s}
-.card:hover{transform:translateY(-3px);border-color:var(--gold);background:var(--surface-2)}
-.card h3{margin:0;font-size:1.02rem;font-weight:600}
-.card small{display:block;color:var(--muted);font-size:.82rem;font-weight:400;margin-top:2px}
-.price{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.9rem;color:var(--gold);white-space:nowrap;letter-spacing:.02em}
-.card.featured{background:linear-gradient(135deg,rgba(212,165,56,.18),var(--surface) 60%);border-color:var(--gold)}
-.tag{display:inline-block;background:var(--gold);color:var(--btn-text);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin-bottom:6px}
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:110px 0 64px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:44%;width:900px;height:900px;transform:translate(-50%,-50%);background:conic-gradient(from 0deg,transparent 0 20deg,rgba(243,210,122,.10) 30deg,transparent 45deg 110deg,rgba(243,210,122,.08) 125deg,transparent 140deg 200deg,rgba(243,210,122,.10) 215deg,transparent 230deg 290deg,rgba(243,210,122,.08) 305deg,transparent 320deg);-webkit-mask:radial-gradient(circle,#000 20%,transparent 62%);mask:radial-gradient(circle,#000 20%,transparent 62%);animation:spin 40s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hero .wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.hero-logo{width:min(540px,100%);height:auto;max-height:58vh;object-fit:contain;margin:18px auto 0;filter:drop-shadow(0 0 40px rgba(212,162,60,.25));animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.tagline{font-family:var(--f-serif);font-weight:700;letter-spacing:.35em;text-transform:uppercase;font-size:.9rem;margin:6px 0 0}
+.lead{font-size:1.1rem;color:var(--muted);max-width:540px;margin:18px auto 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.trust{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;background:var(--surface);border:1px solid var(--line-soft);font-size:.85rem;color:var(--muted)}
+.chip svg{width:16px;height:16px;stroke:var(--gold-2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:520px){
+  .hero{padding-top:92px}
+  .actions .btn{width:100%}
+  .tagline{font-size:.78rem;letter-spacing:.28em}
+}
 
-/* About / Barber */
-.about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.about h2{text-align:left}
-.about p{color:var(--muted);font-size:1.02rem}
-.features{display:grid;gap:14px;margin-top:26px}
-.feature{display:flex;gap:14px;align-items:flex-start}
-.feature .ico{flex:0 0 42px;height:42px;border-radius:12px;background:rgba(212,165,56,.12);color:var(--gold);display:grid;place-items:center;font-size:1.1rem}
-.feature strong{display:block;font-weight:600}
-.feature span{color:var(--muted);font-size:.92rem}
-.badge-card{background:linear-gradient(160deg,#1f1a0e,#0d0d0f);border:1px solid var(--line);border-radius:24px;padding:44px 32px;text-align:center}
-.badge-card .logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:3.2rem;color:var(--gold);line-height:1;letter-spacing:.04em}
-.badge-card .sub{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;margin-top:8px}
-.badge-card .pro{margin-top:26px;font-size:1.25rem;font-weight:600}
-.badge-card .pro-role{color:var(--gold);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
-@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}.about h2{text-align:center}}
+/* ---------- Faixa de serviços ---------- */
+.marquee{position:relative;background:#050403;overflow:hidden;white-space:nowrap}
+.marquee .track-wrap{padding:16px 0;border-block:1px solid var(--line)}
+.marquee-track{display:inline-flex;gap:44px;animation:scroll 32s linear infinite;font-family:var(--f-display);font-size:1.25rem;letter-spacing:.04em;color:var(--gold-2)}
+.marquee-track span{display:inline-flex;align-items:center;gap:44px}
+.marquee-track span::after{content:"";width:22px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20'%3E%3Cpath fill='%23d4a23c' d='M2 18h26l2-12-7 5-8-10-8 10-7-5z'/%3E%3C/svg%3E") center/contain no-repeat}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* Hours & contact */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px}
-.panel h3{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:2.1rem;margin:0 0 18px;color:var(--gold)}
-.row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);gap:12px}
-.row:last-child{border-bottom:none}
-.row span:first-child{color:var(--muted)}
-.row strong{font-weight:600}
-.cta-panel{display:flex;flex-direction:column;justify-content:center;gap:14px;background:linear-gradient(160deg,rgba(212,165,56,.2),var(--surface) 70%)}
-.cta-panel p{color:var(--muted);margin:0 0 6px}
-.cta-panel .btn{width:100%}
-.phone{color:var(--text);font-size:1.25rem;font-weight:600;text-decoration:none;text-align:center;margin-top:4px}
-@media(max-width:820px){.split{grid-template-columns:1fr}}
+/* ---------- Seções ---------- */
+section{padding:100px 0}
+.head{margin:0 auto 44px;max-width:680px;text-align:center}
+.head.left{text-align:left;margin-left:0}
+.kicker{display:inline-block;font-family:var(--f-serif);color:var(--gold);font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2.3rem,6vw,4rem);margin:0;line-height:1.02;letter-spacing:.01em}
+.head p{color:var(--muted);margin:16px 0 0;font-size:1.02rem}
+@media(max-width:520px){section{padding:72px 0}}
 
-footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);font-size:.88rem}
-footer .brand{font-size:1.3rem;display:inline-block;margin-bottom:6px}
+/* ---------- Serviços ---------- */
+.hint{display:flex;align-items:center;justify-content:center;gap:10px;margin:-18px 0 28px;color:var(--muted);font-size:.9rem;text-align:center}
+.hint svg{width:18px;height:18px;fill:var(--green);flex:none}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.tile{position:relative;background:linear-gradient(180deg,rgba(255,236,190,.045),rgba(255,236,190,.015));border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;overflow:hidden;text-decoration:none;color:var(--text);cursor:pointer;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(243,210,122,.13),transparent 45%);opacity:0;transition:opacity .4s;pointer-events:none}
+.tile:hover{transform:translateY(-4px);border-color:rgba(243,210,122,.5);box-shadow:0 20px 40px -24px rgba(212,162,60,.5)}
+.tile:hover::before{opacity:1}
+.tile:active{transform:scale(.985)}
+.tile h3{margin:0;font-size:1.08rem;font-weight:700;position:relative}
+.tile small{display:block;color:var(--muted);font-weight:400;font-size:.84rem;margin-top:4px}
+.tile-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;position:relative}
+.price{font-family:var(--f-display);font-size:2.1rem;line-height:1;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
+.price sup{font-family:var(--f-serif);font-weight:700;font-size:.42em;vertical-align:top;margin-right:3px;position:relative;top:.4em}
+.price.soft{font-size:1.5rem}
+.ask{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:var(--muted);padding:7px 11px;border-radius:99px;background:var(--surface-2);transition:background .3s,color .3s;white-space:nowrap}
+.ask svg{width:14px;height:14px;fill:currentColor}
+.tile:hover .ask{background:var(--green);color:var(--green-ink)}
+/* Moldura vintage do destaque */
+.tile.big{grid-column:span 4;min-height:250px;border-color:rgba(243,210,122,.45);background:radial-gradient(500px 260px at 85% 0%,rgba(212,162,60,.25),transparent 70%),linear-gradient(180deg,#1a1308,#0a0805)}
+.tile.big::after{content:"";position:absolute;inset:8px;border:1px solid rgba(243,210,122,.22);border-radius:14px;pointer-events:none}
+.tile.big h3{font-family:var(--f-display);font-weight:400;font-size:2.5rem;line-height:1.05}
+.tile.big .price{font-size:4rem}
+.tile.big .razor{position:absolute;right:22px;top:22px;width:110px;opacity:.18;fill:var(--gold-2)}
+.tile.wide,.tile.third{grid-column:span 2}
+.tile.half{grid-column:span 3}
+.badge{display:inline-block;align-self:flex-start;background:var(--metal-x);color:#1a1205;font-family:var(--f-serif);font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:99px;margin-bottom:14px}
+@media(max-width:860px){.bento{grid-template-columns:1fr 1fr}.tile.big{grid-column:span 2}.tile.wide,.tile.half,.tile.third{grid-column:span 1}.bento>.tile:last-child{grid-column:span 2}}
+@media(max-width:520px){
+  .bento{grid-template-columns:1fr;gap:10px}
+  .tile.big,.tile.wide,.tile.half,.tile.third,.bento>.tile:last-child{grid-column:span 1}
+  .tile{flex-direction:row;align-items:center;padding:18px;gap:14px}
+  .tile .tile-foot{flex-direction:column;align-items:flex-end;gap:8px}
+  .tile.big{flex-direction:column;align-items:stretch;min-height:210px;padding:24px}
+  .tile.big .tile-foot{flex-direction:row;align-items:flex-end}
+  .tile.big h3{font-size:2.1rem}
+  .tile.big .price{font-size:3.3rem}
+  .price{font-size:1.8rem}
+  .badge{margin-bottom:8px}
+}
 
-/* Floating WhatsApp */
-.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:#25d366;color:#06120a;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.35);transition:transform .2s}
-.fab:hover{transform:scale(1.07)}
-.fab svg{width:28px;height:28px;fill:currentColor}
+/* ---------- Como funciona ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{position:relative;padding:28px 24px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line-soft);text-align:center}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:52px;height:52px;margin:0 auto 16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3c4,#d4a23c 55%,#7a5214);color:#1a1205;font-family:var(--f-display);font-size:1.4rem;box-shadow:0 0 0 3px #000,0 0 0 4px rgba(243,210,122,.5)}
+.step strong{display:block;font-size:1.08rem;margin-bottom:4px}
+.step span{color:var(--muted);font-size:.93rem}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* ---------- Sobre ---------- */
+.about{background:linear-gradient(180deg,transparent,rgba(212,162,60,.05),transparent)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about p{color:var(--muted);font-size:1.04rem;margin:20px 0 0}
+.feats{display:grid;gap:12px;margin-top:30px}
+.feat{display:flex;gap:16px;align-items:center;padding:16px 18px;border-radius:16px;background:var(--surface);border:1px solid var(--line-soft)}
+.feat .ico{flex:0 0 46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,243,196,.35),rgba(212,162,60,.12));border:1px solid rgba(243,210,122,.35);color:var(--gold-2);display:grid;place-items:center}
+.feat .ico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feat strong{display:block;font-weight:700}
+.feat span{color:var(--muted);font-size:.9rem}
+.barber{position:relative;border-radius:28px;padding:30px 28px 34px;text-align:center;overflow:hidden;background:#000;border:1px solid rgba(243,210,122,.35)}
+.barber::before{content:"";position:absolute;inset:10px;border:1px solid rgba(243,210,122,.15);border-radius:20px;pointer-events:none}
+.barber img{width:100%;max-width:420px;margin:0 auto;mix-blend-mode:lighten}
+.barber .name{margin-top:14px;font-family:var(--f-display);font-size:1.7rem;line-height:1.1}
+.barber .role{font-family:var(--f-serif);color:var(--gold);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-top:6px}
+.barber .rule{position:relative;margin:24px auto 0;max-width:300px;padding:14px;border-radius:14px;background:rgba(212,162,60,.07);border:1px dashed rgba(243,210,122,.35);font-size:.92rem;color:var(--muted)}
+.barber .rule b{color:var(--gold-2);font-weight:700}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:44px}}
+
+/* ---------- Horários e contato ---------- */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.box{position:relative;border-radius:24px;padding:34px;background:var(--surface);border:1px solid var(--line)}
+.box h3{font-family:var(--f-display);font-weight:400;font-size:2rem;margin:0;line-height:1.05}
+.box-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.days{list-style:none;margin:0;padding:0}
+.days li{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;font-size:.98rem}
+.days li+li{border-top:1px solid var(--line-soft)}
+.days li span{color:var(--muted)}
+.days li strong{font-weight:600;font-variant-numeric:tabular-nums}
+.days li.closed strong{color:var(--muted);font-weight:500}
+.days li.today{background:rgba(212,162,60,.12);box-shadow:inset 0 0 0 1px rgba(243,210,122,.35)}
+.days li.today,.days li.today+li{border-color:transparent}
+.days li.today span{color:var(--gold-2);font-weight:700}
+.days li.today span::after{content:" · hoje";font-weight:500;font-size:.82rem}
+.notice{margin-top:18px;display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(212,162,60,.08);border:1px dashed rgba(243,210,122,.4);color:var(--gold-2);font-weight:600;font-size:.95rem}
+.notice svg{flex:0 0 20px;width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+.cta{background:radial-gradient(420px 260px at 100% 0%,rgba(212,162,60,.22),transparent 70%),linear-gradient(180deg,#120d06,#060504);border-color:rgba(243,210,122,.4);display:flex;flex-direction:column;justify-content:center;gap:14px;overflow:hidden}
+.cta .medal{width:84px;height:84px;border-radius:50%;box-shadow:0 0 0 2px var(--gold),0 0 0 6px #000,0 0 0 7px rgba(243,210,122,.4),0 10px 30px -6px rgba(212,162,60,.5)}
+.cta h3{font-size:2.3rem}
+.cta p{color:var(--muted);margin:0 0 6px}
+.cta .btn{width:100%}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.quick button,.quick a{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 10px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.02);font-size:.86rem;font-weight:600;color:var(--text);text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s}
+.quick button:hover{border-color:var(--green);background:rgba(37,211,102,.08)}
+.quick a:hover{border-color:var(--gold);background:rgba(212,162,60,.1)}
+.quick a svg{width:16px;height:16px;fill:none;stroke:var(--gold-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.box{padding:24px 18px}.cta h3{font-size:2rem}}
+
+/* ---------- Rodapé ---------- */
+footer{background:#050403;color:var(--muted);font-size:.9rem;text-align:center}
+footer .inner{padding:44px 0 120px}
+footer img.medal{width:64px;height:64px;border-radius:50%;margin:0 auto 14px;box-shadow:0 0 0 1.5px var(--gold),0 0 0 5px #000,0 0 0 6px rgba(243,210,122,.35)}
+footer .name{font-family:var(--f-display);font-size:1.4rem;color:var(--text)}
+footer .motto{font-family:var(--f-serif);letter-spacing:.3em;text-transform:uppercase;font-size:.72rem;color:var(--gold);margin:4px 0 16px}
+footer .stache{width:46px;margin:0 auto 14px;fill:var(--gold)}
+
+/* ---------- WhatsApp flutuante (PC) / barra (celular) ---------- */
+.fab{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:10px;background:var(--green);color:var(--green-ink);padding:14px 20px 14px 16px;border-radius:99px;text-decoration:none;font-weight:700;box-shadow:0 14px 36px -8px rgba(37,211,102,.5);transition:transform .25s}
+.fab:hover{transform:translateY(-2px) scale(1.02)}
+.fab svg{width:22px;height:22px;fill:currentColor}
+.dock{display:none}
+@media(max-width:820px){
+  .fab{display:none}
+  .dock{display:grid;grid-template-columns:1fr auto;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--ease)}
+  .dock.show{transform:none}
+  .dock .btn{min-height:50px;padding:12px 18px}
+}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;left:50%;bottom:96px;z-index:80;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#14110b;border:1px solid var(--line);color:var(--text);padding:12px 18px;border-radius:14px;font-size:.9rem;font-weight:600;box-shadow:0 20px 40px -10px rgba(0,0,0,.8);transition:opacity .25s,transform .25s var(--ease);max-width:calc(100% - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Animação ao rolar ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
-<body>
+<body class="no-js">
 
-<nav class="nav">
+<!-- Símbolos reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3c4"/><stop offset=".35" stop-color="#f1cf6e"/><stop offset=".6" stop-color="#b9852a"/><stop offset="1" stop-color="#f5d77f"/>
+    </linearGradient>
+  </defs>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.43-9.43a9.4 9.4 0 0 1 9.43 9.44c0 5.2-4.23 9.42-9.44 9.42m8.02-17.45A11.3 11.3 0 0 0 12.05.72C5.8.72.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.6l6.01-1.58a11.3 11.3 0 0 0 5.43 1.38h.01c6.25 0 11.34-5.09 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02"/></symbol>
+  <symbol id="crown" viewBox="0 0 30 20"><path d="M2 18h26l2-12-7 5-8-10-8 10-7-5z"/><circle cx="15" cy="1.6" r="1.6"/><circle cx="1.5" cy="5.5" r="1.4"/><circle cx="28.5" cy="5.5" r="1.4"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="pole" aria-hidden="true"></div>
   <div class="wrap">
-    <a href="#inicio" class="brand">DAVI BARBEARIA</a>
-    <ul>
-      <li><a href="#servicos">Serviços</a></li>
+    <a href="#inicio" class="brand">
+      <img src="icone.png" alt="" width="40" height="40">
+      <b>Davi Barbearia<small>GUIADO POR DEUS</small></b>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+    <ul id="menu">
+      <li><a href="#servicos">Serviços e preços</a></li>
+      <li><a href="#como">Como funciona</a></li>
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#horarios">Horários</a></li>
-      <li><a href="#agendar" class="nav-cta">Agendar</a></li>
+      <li><a href="#contato" class="pill-cta" data-wa><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="inicio">
   <div class="wrap">
-    <span class="eyebrow">✂ Barbearia · Guiado por Deus</span>
-    <h1>Davi<br><em>Barbearia</em></h1>
-    <p>Cortes masculinos e infantis, barba na navalha, sobrancelha e muito cuidado em cada detalhe.</p>
+    <span class="status" data-status><i></i><b>Davi Barbearia</b></span>
+    <h1 class="sr-only">Davi Barbearia – Guiado por Deus</h1>
+    <img class="hero-logo" src="logo.png" alt="Logomarca Davi Barbearia – Guiado por Deus" width="640" height="560">
+    <p class="lead">Cortes masculinos e infantis, barba na navalha, sobrancelha e muito cuidado em cada detalhe. Sem agendamento: é só chegar.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="#agendar">Agendar horário</a>
-      <a class="btn btn-ghost" href="#servicos">Ver serviços e preços</a>
+      <a class="btn btn-wa" href="https://wa.me/556798289548" data-wa data-msg="Olá! Tem fila agora? Quero cortar o cabelo." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#wa"/></svg>
+        Ver a fila no WhatsApp
+      </a>
+      <a class="btn btn-ghost" href="#servicos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        Serviços e preços
+      </a>
     </div>
-    <div class="hours-pill"><span class="dot"></span> Atendimento de segunda a sábado · 08:30 às 19:00</div>
+    <div class="trust">
+      <span class="chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-hours-today>08:30 às 19:00</span></span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8M21 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Ordem de chegada</span>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Adulto e infantil</span>
+    </div>
   </div>
 </header>
 
+<div class="marquee" aria-hidden="true">
+  <div class="pole"></div>
+  <div class="track-wrap">
+    <div class="marquee-track">
+      <span>Corte masculino</span><span>Barba na navalha</span><span>Corte infantil</span><span>Sobrancelha</span><span>Luzes com corte</span><span>Relaxamento</span>
+      <span>Corte masculino</span><span>Barba na navalha</span><span>Corte infantil</span><span>Sobrancelha</span><span>Luzes com corte</span><span>Relaxamento</span>
+    </div>
+  </div>
+  <div class="pole"></div>
+</div>
+
 <section id="servicos">
   <div class="wrap">
-    <div class="head">
+    <div class="head reveal">
       <span class="kicker">Tabela de valores</span>
-      <h2>Nossos serviços</h2>
+      <h2>Serviços <span class="metal">&amp; Preços</span></h2>
+      <div class="orn"><svg><use href="#crown"/></svg></div>
+      <p>Valores atualizados. Atendimento por ordem de chegada.</p>
     </div>
-    <div class="grid">
-      <div class="card featured">
-        <div><span class="tag">Mais pedido</span><h3>Corte masculino</h3></div>
-        <span class="price">R$ 45</span>
-      </div>
-      <div class="card">
+    <p class="hint reveal"><svg aria-hidden="true"><use href="#wa"/></svg>Toque em um serviço para perguntar direto no WhatsApp.</p>
+
+    <div class="bento">
+      <a class="tile big reveal" href="https://wa.me/556798289548" data-wa data-service="Corte masculino" data-price="R$ 45">
+        <svg class="razor" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 30 70 8c4-1 8 0 10 3l2 3-74 22c-3 1-5-1-4-6Zm80-15 30-6c3 0 5 2 4 5l-1 2-31 8z"/></svg>
+        <div><span class="badge">Mais pedido</span><h3>Corte masculino</h3></div>
+        <div class="tile-foot"><div class="price"><sup>R$</sup>45</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+
+      <a class="tile half reveal" href="https://wa.me/556798289548" data-wa data-service="Barba na navalha" data-price="R$ 35">
         <div><h3>Barba na navalha</h3></div>
-        <span class="price">R$ 35</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>35</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+      <a class="tile half reveal" href="https://wa.me/556798289548" data-wa data-service="Barba só na máquina" data-price="R$ 20">
         <div><h3>Barba só na máquina</h3></div>
-        <span class="price">R$ 20</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>20</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+
+      <a class="tile third reveal" href="https://wa.me/556798289548" data-wa data-service="Sobrancelha na navalha" data-price="R$ 20">
         <div><h3>Sobrancelha na navalha</h3></div>
-        <span class="price">R$ 20</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>20</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+      <a class="tile third reveal" href="https://wa.me/556798289548" data-wa data-service="Depilação na cera (nariz ou ouvido)" data-price="R$ 20">
         <div><h3>Depilação na cera</h3><small>Nariz ou ouvido</small></div>
-        <span class="price">R$ 20</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>20</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+      <a class="tile third reveal" href="https://wa.me/556798289548" data-wa data-service="Hidratação" data-price="R$ 20">
         <div><h3>Hidratação</h3><small>Lavatório</small></div>
-        <span class="price">R$ 20</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>20</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+
+      <a class="tile half reveal" href="https://wa.me/556798289548" data-wa data-service="Relaxamento / selagem" data-price="R$ 70">
         <div><h3>Relaxamento / selagem</h3></div>
-        <span class="price">R$ 70</span>
-      </div>
-      <div class="card">
+        <div class="tile-foot"><div class="price"><sup>R$</sup>70</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+      <a class="tile half reveal" href="https://wa.me/556798289548" data-wa data-service="Somente pezinho" data-price="R$ 10">
         <div><h3>Somente pezinho</h3></div>
-        <span class="price">R$ 10</span>
-      </div>
-      <div class="card featured">
-        <div><span class="tag">Premium</span><h3>Luzes com corte</h3></div>
-        <span class="price">R$ 200</span>
-      </div>
+        <div class="tile-foot"><div class="price"><sup>R$</sup>10</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+
+      <a class="tile wide reveal" href="https://wa.me/556798289548" data-wa data-service="Luzes com corte" data-price="R$ 200">
+        <div><span class="badge">Premium</span><h3>Luzes com corte</h3></div>
+        <div class="tile-foot"><div class="price"><sup>R$</sup>200</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Perguntar</span></div>
+      </a>
+      <a class="tile wide reveal" href="https://wa.me/556798289548" data-wa data-service="Corte infantil">
+        <div><h3>Corte infantil</h3><small>Para os pequenos da família</small></div>
+        <div class="tile-foot"><div class="price soft">Consulte</div><span class="ask"><svg aria-hidden="true"><use href="#wa"/></svg>Ver valor</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="como" style="padding-top:10px">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Simples assim</span>
+      <h2>Como <span class="metal">funciona</span></h2>
+      <div class="orn"><svg><use href="#crown"/></svg></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><strong>Chame no WhatsApp</strong><span>Pergunte se tem fila antes de sair de casa.</span></div>
+      <div class="step reveal"><strong>Chegue na barbearia</strong><span>Sem agendamento: o atendimento segue a ordem de chegada.</span></div>
+      <div class="step reveal"><strong>Saia na régua</strong><span>Corte, barba e acabamento feitos com calma e atenção.</span></div>
     </div>
   </div>
 </section>
 
 <section class="about" id="sobre">
   <div class="wrap about-grid">
-    <div>
-      <span class="kicker">Sobre a barbearia</span>
-      <h2>Estilo, respeito<br>e atendimento de qualidade</h2>
-      <p style="margin-top:18px">Atendemos adultos e crianças. Cada corte é feito com calma, atenção ao formato do rosto e ao gosto de cada cliente, em um ambiente confortável e acolhedor.</p>
-      <div class="features">
-        <div class="feature"><div class="ico">✂</div><div><strong>Cortes adulto e infantil</strong><span>Do clássico ao moderno, com acabamento impecável.</span></div></div>
-        <div class="feature"><div class="ico">⌁</div><div><strong>Barba na navalha</strong><span>Toalha quente e acabamento preciso.</span></div></div>
-        <div class="feature"><div class="ico">☆</div><div><strong>Ambiente acolhedor</strong><span>Espaço confortável para você esperar com tranquilidade.</span></div></div>
+    <div class="reveal">
+      <div class="head left" style="margin-bottom:0">
+        <span class="kicker">Sobre a barbearia</span>
+        <h2>Estilo, respeito <span class="metal">e atenção</span></h2>
+        <div class="orn"><svg><use href="#crown"/></svg></div>
+      </div>
+      <p>Atendemos adultos e crianças. Cada corte é feito com calma, com atenção ao formato do rosto e ao gosto de cada cliente, em um ambiente confortável e acolhedor.</p>
+      <div class="feats">
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></div>
+          <div><strong>Cortes adulto e infantil</strong><span>Do clássico ao moderno, com acabamento impecável.</span></div>
+        </div>
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17 15 5c1.5-1.5 4-1.5 5 0l1 1-14 14H5z"/><path d="M14 10l3 3"/></svg></div>
+          <div><strong>Barba na navalha</strong><span>Acabamento preciso, do jeito que você gosta.</span></div>
+        </div>
+        <div class="feat">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18h18l1.5-10-5.5 4-5-7-5 7-5.5-4z"/></svg></div>
+          <div><strong>Ambiente acolhedor</strong><span>Espaço confortável para você esperar com tranquilidade.</span></div>
+        </div>
       </div>
     </div>
-    <div class="badge-card">
-      <div class="logo">DAVI</div>
-      <div class="sub">Barbearia</div>
-      <div class="pro">Pedro Davi</div>
-      <div class="pro-role">Barbeiro</div>
+
+    <div class="barber reveal">
+      <img src="logo.png" alt="" width="640" height="560" loading="lazy">
+      <div class="name metal">Pedro Davi</div>
+      <div class="role">Barbeiro</div>
+      <div class="rule"><b>Sem agendamento.</b><br>Apenas ordem de chegada.</div>
     </div>
   </div>
 </section>
 
 <section id="horarios">
   <div class="wrap">
-    <div class="head">
-      <span class="kicker">Funcionamento</span>
-      <h2>Horários</h2>
+    <div class="head reveal">
+      <span class="kicker">Horários &amp; contato</span>
+      <h2>Venha nos <span class="metal">visitar</span></h2>
+      <div class="orn"><svg><use href="#crown"/></svg></div>
+      <p>Sem agendamento: chegue e entre na fila. Dúvidas? Chame no WhatsApp.</p>
     </div>
-    <div class="split">
-      <div class="panel">
-        <h3>Atendimento</h3>
-        <div class="row"><span>Manhã</span><strong>08:30 – 11:00</strong></div>
-        <div class="row"><span>Tarde</span><strong>14:30 – 19:00</strong></div>
+
+    <div class="contact-grid" id="contato">
+      <div class="box reveal">
+        <div class="box-top">
+          <h3 class="metal">Horário</h3>
+          <span class="status" data-status><i></i><b>Horário</b></span>
+        </div>
+        <ul class="days" id="days">
+          <li><span>Segunda a sábado</span><strong>08:30 – 19:00</strong></li>
+          <li class="closed"><span>Domingo</span><strong>Fechado</strong></li>
+        </ul>
+        <div class="notice">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8"/></svg>
+          Atendimento apenas por ordem de chegada.
+        </div>
       </div>
-      <div class="panel cta-panel" id="agendar">
-        <h3>Agende seu horário</h3>
-        <p>Fale direto com a barbearia pelo WhatsApp e escolha o melhor horário.</p>
-        <a class="btn btn-primary" id="wa" href="https://wa.me/556798289548?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio.">Conversar no WhatsApp</a>
-        <a class="phone" href="tel:+556798289548">(67) 9828-9548</a>
+
+      <div class="box cta reveal">
+        <img class="medal" src="icone.png" alt="" width="84" height="84" loading="lazy">
+        <h3 class="metal">Fale com a gente</h3>
+        <p>Um toque e abre a conversa no seu WhatsApp, com a mensagem já escrita.</p>
+        <a class="btn btn-wa" href="https://wa.me/556798289548" data-wa data-msg="Olá! Tem fila agora?" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#wa"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <div class="quick" aria-label="Mensagens rápidas">
+          <button type="button" data-wa data-msg="Olá! Tem fila agora?">Tem fila agora?</button>
+          <button type="button" data-wa data-msg="Olá! Qual o valor do corte infantil?">Valor infantil</button>
+          <button type="button" data-wa data-msg="Olá! Até que horas vocês atendem hoje?">Até que horas?</button>
+          <a href="tel:+556798289548" data-tel><svg aria-hidden="true"><use href="#phone"/></svg>Ligar</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <a class="brand" href="#inicio">DAVI BARBEARIA</a>
-    <div>Guiado por Deus</div>
-    <div style="margin-top:6px">© Davi Barbearia</div>
+  <div class="pole" aria-hidden="true"></div>
+  <div class="wrap inner">
+    <img class="medal" src="icone.png" alt="" width="64" height="64" loading="lazy">
+    <div class="name">Davi Barbearia</div>
+    <div class="motto">Guiado por Deus</div>
+    <svg class="stache" viewBox="0 0 64 20" aria-hidden="true"><path d="M32 6c3-5 10-6 15-2 4 3 7 8 15 5-3 6-11 10-19 8-5-1-9-4-11-7-2 3-6 6-11 7C13 19 5 15 2 9c8 3 11-2 15-5 5-4 12-3 15 2z"/></svg>
+    <div>© <span id="year">2026</span> Davi Barbearia · Todos os direitos reservados</div>
   </div>
 </footer>
 
-<a class="fab" href="https://wa.me/556798289548?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.73 2.64 4.19 3.7.59.25 1.05.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.29Z"/></svg>
+<a class="fab" href="https://wa.me/556798289548" data-wa target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg aria-hidden="true"><use href="#wa"/></svg><span>WhatsApp</span>
 </a>
 
+<div class="dock" id="dock">
+  <a class="btn btn-wa" href="https://wa.me/556798289548" data-wa target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Chamar no WhatsApp</a>
+  <a class="btn btn-ghost" href="tel:+556798289548" data-tel aria-label="Ligar"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#phone"/></svg></a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
-// Os links do WhatsApp já apontam para o número da barbearia.
+/* =========================================================
+   CONFIGURAÇÃO — altere só aqui
+   ========================================================= */
+var CONFIG = {
+  // Número com código do país (55) + DDD, só dígitos
+  phone: '556798289548',
+  // Mensagem padrão quando o cliente toca no WhatsApp
+  message: 'Olá! Vim pelo site da Davi Barbearia.',
+  // Fuso horário da barbearia (MS)
+  timezone: 'America/Campo_Grande',
+  // Horários por dia. null = fechado.
+  // Para intervalo de almoço use: [['08:30','12:00'], ['13:30','19:00']]
+  hours: {
+    1: [['08:30','19:00']], // segunda
+    2: [['08:30','19:00']], // terça
+    3: [['08:30','19:00']], // quarta
+    4: [['08:30','19:00']], // quinta
+    5: [['08:30','19:00']], // sexta
+    6: [['08:30','19:00']], // sábado
+    0: null                 // domingo
+  }
+};
+
+(function(){
+  document.body.classList.remove('no-js');
+  var DAYS = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- WhatsApp: abre direto no app ---------- */
+  var ua = navigator.userAgent || '';
+  var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));
+  function waWebUrl(text){ return 'https://wa.me/' + CONFIG.phone + '?text=' + encodeURIComponent(text); }
+
+  function openWhatsApp(text){
+    var t = encodeURIComponent(text);
+    if (isMobile) {
+      var left = false;
+      var mark = function(){ if (document.hidden) left = true; };
+      document.addEventListener('visibilitychange', mark);
+      window.addEventListener('pagehide', mark);
+      window.location.href = 'whatsapp://send?phone=' + CONFIG.phone + '&text=' + t;
+      setTimeout(function(){
+        document.removeEventListener('visibilitychange', mark);
+        window.removeEventListener('pagehide', mark);
+        if (!left && !document.hidden) window.location.href = 'https://api.whatsapp.com/send?phone=' + CONFIG.phone + '&text=' + t;
+      }, 1500);
+    } else {
+      window.open(waWebUrl(text), '_blank', 'noopener');
+    }
+  }
+
+  $$('[data-wa]').forEach(function(el){
+    var msg = el.getAttribute('data-msg');
+    var svc = el.getAttribute('data-service');
+    if (svc) {
+      var price = el.getAttribute('data-price');
+      msg = price ? 'Olá! Quero fazer: ' + svc + ' (' + price + '). Tem fila agora?'
+                  : 'Olá! Qual o valor do ' + svc.toLowerCase() + '? Tem fila agora?';
+    }
+    msg = msg || CONFIG.message;
+    if (el.tagName === 'A') el.href = waWebUrl(msg);
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      closeMenu();
+      toast('Abrindo o WhatsApp…');
+      openWhatsApp(msg);
+    });
+  });
+  $$('[data-tel]').forEach(function(el){ el.href = 'tel:+' + CONFIG.phone; });
+
+  /* ---------- Aviso ---------- */
+  var toastEl = $('#toast'), toastT;
+  function toast(text){
+    toastEl.textContent = text;
+    toastEl.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- Aberto / fechado ---------- */
+  function nowInShop(){
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', {timeZone: CONFIG.timezone, weekday:'short', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(new Date());
+      var map = {}; parts.forEach(function(p){ map[p.type] = p.value; });
+      return {day: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(map.weekday), min: (+map.hour % 24) * 60 + (+map.minute)};
+    } catch(e) {
+      var d = new Date(); return {day: d.getDay(), min: d.getHours()*60 + d.getMinutes()};
+    }
+  }
+  function toMin(hhmm){ var p = hhmm.split(':'); return +p[0]*60 + +p[1]; }
+  function rangesText(r){ return r ? r.map(function(x){ return x[0] + ' – ' + x[1]; }).join(' · ') : 'Fechado'; }
+
+  function computeStatus(){
+    var n = nowInShop(), today = CONFIG.hours[n.day];
+    if (today) {
+      for (var i = 0; i < today.length; i++) {
+        var a = toMin(today[i][0]), b = toMin(today[i][1]);
+        if (n.min >= a && n.min < b) return {open:true, text:'Aberto agora', sub:'até ' + today[i][1]};
+        if (n.min < a) return {open:false, text:'Fechado', sub:'abre hoje às ' + today[i][0]};
+      }
+    }
+    for (var k = 1; k <= 7; k++) {
+      var d = (n.day + k) % 7, h = CONFIG.hours[d];
+      if (h) return {open:false, text:'Fechado', sub:'abre ' + (k === 1 ? 'amanhã' : DAYS[d].toLowerCase()) + ' às ' + h[0][0]};
+    }
+    return {open:false, text:'Fechado', sub:''};
+  }
+  function renderStatus(){
+    var s = computeStatus();
+    $$('[data-status]').forEach(function(el){
+      el.classList.toggle('is-open', s.open);
+      el.classList.toggle('is-closed', !s.open);
+      el.innerHTML = '<i></i><b>' + s.text + '</b>' + (s.sub ? '<span>· ' + s.sub + '</span>' : '');
+    });
+    var t = CONFIG.hours[nowInShop().day], chip = $('[data-hours-today]');
+    if (chip) chip.textContent = t ? 'Hoje: ' + rangesText(t) : 'Hoje: fechado';
+  }
+  function renderDays(){
+    var today = nowInShop().day;
+    $('#days').innerHTML = [1,2,3,4,5,6,0].map(function(d){
+      var h = CONFIG.hours[d];
+      return '<li class="' + (h ? '' : 'closed') + (d === today ? ' today' : '') + '"><span>' + DAYS[d] + '</span><strong>' + rangesText(h) + '</strong></li>';
+    }).join('');
+  }
+  renderDays();
+  renderStatus();
+  setInterval(renderStatus, 60000);
+
+  /* ---------- Menu do celular ---------- */
+  var nav = $('#nav'), btn = $('#menuBtn');
+  function closeMenu(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  $$('#menu a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* ---------- Menu e barra ao rolar ---------- */
+  var dock = $('#dock');
+  function onScroll(){
+    var y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 20);
+    dock.classList.toggle('show', y > 420);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---------- Animação ao rolar ---------- */
+  var els = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* ---------- Brilho que segue o mouse ---------- */
+  $$('.tile').forEach(function(t){
+    t.addEventListener('pointermove', function(ev){
+      var r = t.getBoundingClientRect();
+      t.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      t.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+  });
+})();
 </script>
 </body>
 </html>
