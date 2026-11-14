@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Davi Barbearia – cortes masculinos e infantis, barba, sobrancelha e mais. Agende pelo WhatsApp.">
+<title>Davi Barbearia – Guiado por Deus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;--surface:#131316;--surface-2:#1b1b20;--text:#f5f2ea;--muted:#9b968a;
+  --gold:#d4a538;--gold-2:#f0c75e;--line:rgba(212,165,56,.18);--btn-text:#0a0a0b;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+/* Header */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,11,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.6rem;letter-spacing:.06em;color:var(--gold);text-decoration:none}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.9rem;font-weight:500;transition:color .2s}
+.nav ul a:hover{color:var(--text)}
+.nav-cta{background:var(--gold);color:var(--btn-text)!important;padding:9px 18px;border-radius:99px;font-weight:600!important}
+.nav-cta:hover{background:var(--gold-2)}
+@media(max-width:640px){.nav ul li:not(:last-child){display:none}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:110px 0 96px;text-align:center;background:radial-gradient(900px 500px at 50% -10%,rgba(212,165,56,.22),transparent 70%),var(--bg)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,var(--bg))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);padding:6px 14px;border-radius:99px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.hero h1{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:clamp(4rem,14vw,8.5rem);line-height:.9;margin:22px 0 14px;letter-spacing:.02em}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:520px;margin:0 auto 34px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 28px;border-radius:99px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--gold);color:var(--btn-text)}
+.btn-primary:hover{background:var(--gold-2)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold)}
+.hours-pill{display:inline-flex;gap:8px;align-items:center;margin-top:30px;color:var(--muted);font-size:.9rem}
+.dot{width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.15)}
+
+/* Sections */
+section{padding:88px 0}
+.head{text-align:center;margin-bottom:46px}
+.kicker{color:var(--gold);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:clamp(2.6rem,7vw,4rem);line-height:1;margin:10px 0 0}
+
+/* Prices */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;transition:transform .25s,border-color .25s,background .25s}
+.card:hover{transform:translateY(-3px);border-color:var(--gold);background:var(--surface-2)}
+.card h3{margin:0;font-size:1.02rem;font-weight:600}
+.card small{display:block;color:var(--muted);font-size:.82rem;font-weight:400;margin-top:2px}
+.price{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.9rem;color:var(--gold);white-space:nowrap;letter-spacing:.02em}
+.card.featured{background:linear-gradient(135deg,rgba(212,165,56,.18),var(--surface) 60%);border-color:var(--gold)}
+.tag{display:inline-block;background:var(--gold);color:var(--btn-text);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;margin-bottom:6px}
+
+/* About / Barber */
+.about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about h2{text-align:left}
+.about p{color:var(--muted);font-size:1.02rem}
+.features{display:grid;gap:14px;margin-top:26px}
+.feature{display:flex;gap:14px;align-items:flex-start}
+.feature .ico{flex:0 0 42px;height:42px;border-radius:12px;background:rgba(212,165,56,.12);color:var(--gold);display:grid;place-items:center;font-size:1.1rem}
+.feature strong{display:block;font-weight:600}
+.feature span{color:var(--muted);font-size:.92rem}
+.badge-card{background:linear-gradient(160deg,#1f1a0e,#0d0d0f);border:1px solid var(--line);border-radius:24px;padding:44px 32px;text-align:center}
+.badge-card .logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:3.2rem;color:var(--gold);line-height:1;letter-spacing:.04em}
+.badge-card .sub{color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;margin-top:8px}
+.badge-card .pro{margin-top:26px;font-size:1.25rem;font-weight:600}
+.badge-card .pro-role{color:var(--gold);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}.about h2{text-align:center}}
+
+/* Hours & contact */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px}
+.panel h3{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:2.1rem;margin:0 0 18px;color:var(--gold)}
+.row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);gap:12px}
+.row:last-child{border-bottom:none}
+.row span:first-child{color:var(--muted)}
+.row strong{font-weight:600}
+.cta-panel{display:flex;flex-direction:column;justify-content:center;gap:14px;background:linear-gradient(160deg,rgba(212,165,56,.2),var(--surface) 70%)}
+.cta-panel p{color:var(--muted);margin:0 0 6px}
+.cta-panel .btn{width:100%}
+.phone{color:var(--text);font-size:1.25rem;font-weight:600;text-decoration:none;text-align:center;margin-top:4px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);font-size:.88rem}
+footer .brand{font-size:1.3rem;display:inline-block;margin-bottom:6px}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;background:#25d366;color:#06120a;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.35);transition:transform .2s}
+.fab:hover{transform:scale(1.07)}
+.fab svg{width:28px;height:28px;fill:currentColor}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="brand">DAVI BARBEARIA</a>
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#horarios">Horários</a></li>
+      <li><a href="#agendar" class="nav-cta">Agendar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <span class="eyebrow">✂ Barbearia · Guiado por Deus</span>
+    <h1>Davi<br><em>Barbearia</em></h1>
+    <p>Cortes masculinos e infantis, barba na navalha, sobrancelha e muito cuidado em cada detalhe.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#agendar">Agendar horário</a>
+      <a class="btn btn-ghost" href="#servicos">Ver serviços e preços</a>
+    </div>
+    <div class="hours-pill"><span class="dot"></span> Atendimento de segunda a sábado · 08:30 às 19:00</div>
+  </div>
+</header>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">Tabela de valores</span>
+      <h2>Nossos serviços</h2>
+    </div>
+    <div class="grid">
+      <div class="card featured">
+        <div><span class="tag">Mais pedido</span><h3>Corte masculino</h3></div>
+        <span class="price">R$ 45</span>
+      </div>
+      <div class="card">
+        <div><h3>Barba na navalha</h3></div>
+        <span class="price">R$ 35</span>
+      </div>
+      <div class="card">
+        <div><h3>Barba só na máquina</h3></div>
+        <span class="price">R$ 20</span>
+      </div>
+      <div class="card">
+        <div><h3>Sobrancelha na navalha</h3></div>
+        <span class="price">R$ 20</span>
+      </div>
+      <div class="card">
+        <div><h3>Depilação na cera</h3><small>Nariz ou ouvido</small></div>
+        <span class="price">R$ 20</span>
+      </div>
+      <div class="card">
+        <div><h3>Hidratação</h3><small>Lavatório</small></div>
+        <span class="price">R$ 20</span>
+      </div>
+      <div class="card">
+        <div><h3>Relaxamento / selagem</h3></div>
+        <span class="price">R$ 70</span>
+      </div>
+      <div class="card">
+        <div><h3>Somente pezinho</h3></div>
+        <span class="price">R$ 10</span>
+      </div>
+      <div class="card featured">
+        <div><span class="tag">Premium</span><h3>Luzes com corte</h3></div>
+        <span class="price">R$ 200</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div class="wrap about-grid">
+    <div>
+      <span class="kicker">Sobre a barbearia</span>
+      <h2>Estilo, respeito<br>e atendimento de qualidade</h2>
+      <p style="margin-top:18px">Atendemos adultos e crianças. Cada corte é feito com calma, atenção ao formato do rosto e ao gosto de cada cliente, em um ambiente confortável e acolhedor.</p>
+      <div class="features">
+        <div class="feature"><div class="ico">✂</div><div><strong>Cortes adulto e infantil</strong><span>Do clássico ao moderno, com acabamento impecável.</span></div></div>
+        <div class="feature"><div class="ico">⌁</div><div><strong>Barba na navalha</strong><span>Toalha quente e acabamento preciso.</span></div></div>
+        <div class="feature"><div class="ico">☆</div><div><strong>Ambiente acolhedor</strong><span>Espaço confortável para você esperar com tranquilidade.</span></div></div>
+      </div>
+    </div>
+    <div class="badge-card">
+      <div class="logo">DAVI</div>
+      <div class="sub">Barbearia</div>
+      <div class="pro">Pedro Davi</div>
+      <div class="pro-role">Barbeiro</div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">Funcionamento</span>
+      <h2>Horários</h2>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <h3>Atendimento</h3>
+        <div class="row"><span>Manhã</span><strong>08:30 – 11:00</strong></div>
+        <div class="row"><span>Tarde</span><strong>14:30 – 19:00</strong></div>
+      </div>
+      <div class="panel cta-panel" id="agendar">
+        <h3>Agende seu horário</h3>
+        <p>Fale direto com a barbearia pelo WhatsApp e escolha o melhor horário.</p>
+        <a class="btn btn-primary" id="wa" href="https://wa.me/556798289548?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio.">Conversar no WhatsApp</a>
+        <a class="phone" href="tel:+556798289548">(67) 9828-9548</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inicio">DAVI BARBEARIA</a>
+    <div>Guiado por Deus</div>
+    <div style="margin-top:6px">© Davi Barbearia</div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/556798289548?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.17c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.77.96-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.73 2.64 4.19 3.7.59.25 1.05.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.29Z"/></svg>
+</a>
+
+<script>
+// Os links do WhatsApp já apontam para o número da barbearia.
+</script>
+</body>
+</html>
